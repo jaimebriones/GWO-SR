@@ -1,16 +1,20 @@
- 
+#include <stdio.h>
+#include <stdlib.h>
+
+
 /* RngStream.h for ANSI C */
-#ifndef RNGSTREAM_H
-#define RNGSTREAM_H
+#ifndef _RNGSTREAM_H
+#define _RNGSTREAM_H
 
-typedef struct RngStream_InfoState * RngStream;
 
-struct RngStream_InfoState {
+typedef struct RngStream_InfoState {
    double Cg[6], Bg[6], Ig[6];
    int Anti;
    int IncPrec;
    char *name;
-};
+} RngStream_InfoState;
+
+typedef RngStream_InfoState *RngStream;
 
 
 int RngStream_SetPackageSeed (unsigned long seed[6]);
@@ -56,7 +60,7 @@ double RngStream_RandU01 (RngStream g);
 
 
 int RngStream_RandInt (RngStream g, int i, int j);
- 
+
 
 #endif
- 
+

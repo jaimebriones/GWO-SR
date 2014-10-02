@@ -1,7 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "StRnk.h"
 #include "RngStream.h"
 #include "ConsFunctions.h"
+#include "common.h"
 
-void stRank(extern Wolf *pack, int SA, RngStream g1){
+
+void stRank(Wolf *pack, int SA, RngStream g1){
 
 	double Pf = 0.45;
 
@@ -24,7 +30,7 @@ void stRank(extern Wolf *pack, int SA, RngStream g1){
 					memcpy(pack[j+1].pos, hlp, sizeof(pack[j+1].pos));
 					band = 1;
 				}
-				
+
 			}
 			else{
 				if (pack[j].fitness > pack[j+1].fitness){

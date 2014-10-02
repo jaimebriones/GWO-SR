@@ -1,9 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct {
-    double fitness;
-    double pos[13];
-} Wolf;
 
-void GWO(int lb, int ub, double (*fObj)(int j2, double pos2[]));
+#ifndef _GWO_C_H
+#define _GWO_C_H
+void GWO(int, int, double (*)(int, double [], int) );
 
 void showPack(void);
+#endif

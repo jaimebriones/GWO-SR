@@ -1,9 +1,10 @@
 //Funciones Con restricciones
+#include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+#include "ConsFunctions.h"
 #include "GWO-C.h"
-#include "RngStream.h"
-
-double function(int j, double pos[]){
+double function(int j, double pos[], int size){
 	double sumF=0, sumF2=0, sumF3=0;
 	int i=0;
 
@@ -12,9 +13,9 @@ double function(int j, double pos[]){
         sumF2 = sumF2 + (pos[i] * pos[i]);
     }
 
-    int tam = sizeof(pos)/sizeof(pos[0]);
+    //int tam = sizeof(pos)/sizeof(pos[0]); //GTP: ojo te va a arrojar un error, el sizeof de pos sólo te da el tamanio de un double *, no del arreglo completo
 
-    for (i = 0; i < tam; ++i){
+    for (i = 0; i < size; ++i){
     	sumF3 = sumF3 + pos[i];
     }
 
@@ -34,15 +35,15 @@ double getPhi(double x[]){
 	double g8 = ( -(2*x[5]) + (x[6]) + (x[10]) );
 	double g9 = ( -(2*x[7]) + (x[8]) + (x[11]) );
 
-	if(g1<=0){phi =+ g1;}
-	if(g2<=0){phi =+ g2;}
-	if(g3<=0){phi =+ g3;}
-	if(g4<=0){phi =+ g4;}
-	if(g5<=0){phi =+ g5;}
-	if(g6<=0){phi =+ g6;}
-	if(g7<=0){phi =+ g7;}
-	if(g8<=0){phi =+ g8;}
-	if(g9<=0){phi =+ g9;}
+	if(g1<=0){phi += g1;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g2<=0){phi += g2;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g3<=0){phi += g3;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g4<=0){phi += g4;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g5<=0){phi += g5;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g6<=0){phi += g6;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g7<=0){phi += g7;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g8<=0){phi += g8;} //gtp: you have =+ operator, but this does not exists in c, it is +=
+	if(g9<=0){phi += g9;} //gtp: you have =+ operator, but this does not exists in c, it is +=
 
 	return phi;
 }
@@ -51,7 +52,7 @@ int main(int argc, char const *argv[])
 {
 	srand(time(0));;
 
-    double (*fObj)(int, double[]);
+    double (*fObj)(int, double[], int);
 
     printf("Funcion 1\n");
     fObj=function;
