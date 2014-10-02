@@ -4,7 +4,7 @@
  * Language:       ANSI C
  * Copyright:      Pierre L'Ecuyer, UniversitÃ© de MontrÃ©al
  * Notice:         This code can be used freely for personal, academic,
- *                 or non-commercial purposes. For commercial purposes, 
+ *                 or non-commercial purposes. For commercial purposes,
  *                 please contact P. L'Ecuyer at: lecuyer@iro.UMontreal.ca
  * Date:           14 August 2001
 
@@ -14,11 +14,11 @@
 \***********************************************************************/
 
 
-#include "RngStream.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "RngStream.h"
 
 /*---------------------------------------------------------------------*/
 /* Private part.                                                       */
@@ -72,19 +72,19 @@ static double A2p0[3][3] = {
           };
 
 static double A1p76[3][3] = {
-          {      82758667.0, 1871391091.0, 4127413238.0 }, 
-          {    3672831523.0,   69195019.0, 1871391091.0 }, 
+          {      82758667.0, 1871391091.0, 4127413238.0 },
+          {    3672831523.0,   69195019.0, 1871391091.0 },
           {    3672091415.0, 3528743235.0,   69195019.0 }
           };
 
 static double A2p76[3][3] = {
-          {    1511326704.0, 3759209742.0, 1610795712.0 }, 
-          {    4292754251.0, 1511326704.0, 3889917532.0 }, 
+          {    1511326704.0, 3759209742.0, 1610795712.0 },
+          {    4292754251.0, 1511326704.0, 3889917532.0 },
           {    3859662829.0, 4292754251.0, 3708466080.0 }
           };
 
 static double A1p127[3][3] = {
-          {    2427906178.0, 3580155704.0,  949770784.0 }, 
+          {    2427906178.0, 3580155704.0,  949770784.0 },
           {     226153695.0, 1230515664.0, 3580155704.0 },
           {    1988835001.0,  986791581.0, 1230515664.0 }
           };
@@ -397,7 +397,7 @@ int RngStream_SetSeed (RngStream g, unsigned long seed[6])
       return -1;                    /* FAILURE */
    for (i = 0; i < 6; ++i)
       g->Cg[i] = g->Bg[i] = g->Ig[i] = seed[i];
-   return 0;                       /* SUCCESS */ 
+   return 0;                       /* SUCCESS */
 }
 
 /*-------------------------------------------------------------------------*/

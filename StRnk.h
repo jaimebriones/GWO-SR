@@ -1,5 +1,13 @@
-//StRnk.h 
+//StRnk.h
 //Libreria para usar Stochastic Ranking
-#include "GWO-C.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "common.h"
+#include "Rngstream.h"
 
-void stRank(extern Wolf *, int SA, RngStream g1);
+#ifndef _STRNK_H
+#define _STRNK_H
+
+void stRank(Wolf *, int SA, RngStream g1);
+
+#endif
